@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'me.tatarka.retrolambda'
+
+//noinspection GroovyUnusedAssignment
+sourceCompatibility = 1.8
+//noinspection GroovyUnusedAssignment
+targetCompatibility = 1.8
+
+dependencies {
+    def netDependencies = rootProject.ext.netDependencies
+    compile netDependencies.dagger
+    compile netDependencies.rxJava
+    compile netDependencies.gson
+    compile netDependencies.retrofit
+    compile netDependencies.retrofitAdapterRxjava
+    compile netDependencies.retrofitConverterGson
+    compile netDependencies.stethoOkhttp
+    
+    def testDependencies = rootProject.ext.netTestDependencies
+    testCompile testDependencies.junit
+    testCompile testDependencies.json
+}

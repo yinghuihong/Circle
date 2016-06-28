@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Circle</string>
+    //Exception messages
+    <string name="exception_message_generic">There was an application error</string>
+    <string name="exception_message_no_connection">There is no internet connection</string>
+    <string name="exception_message_user_not_found">Cannot retrieve user data. Check your internet
+        connection
+    </string>
+    <!-- 规范:name="module_activity_function" -->
+
+    <!-- core module-->
+    <string name="core_action_loading">加载中..</string>
+</resources>

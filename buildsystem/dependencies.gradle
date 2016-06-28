@@ -1,0 +1,128 @@
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+    //Android
+    androidBuildToolsVersion = "24.0.0"
+    androidMinSdkVersion = 15
+    androidTargetSdkVersion = 24
+    androidCompileSdkVersion = 24
+
+    //Libraries
+    appcompatv7Version = '24.0.0'
+    designVersion = '24.0.0'
+    constraintLayoutVersion = '1.0.0-alpha3'
+    daggerVersion = '2.2'
+    butterKnifeVersion = '7.0.1'
+    recyclerViewVersion = '21.0.3'
+    rxJavaVersion = '1.1.5'
+    rxAndroidVersion = '1.2.0'
+    rxBindingVersion = '0.3.0'
+    javaxAnnotationVersion = '1.0'
+    gsonVersion = '2.6.1'
+    okHttpVersion = '3.2.0'
+    androidAnnotationsVersion = '20.0.0'
+    leakCanaryAndroid = '1.3.1'
+    retrofitVersion = '2.0.2'
+    ormliteVersion = '4.48'
+    stethoVersion = '1.3.0'
+    litePalVersion = '1.3.1'
+    jshdcProtoVersion = '1.0.16'
+    picassoVersion = '2.5.2'
+    picassoTransVersion = '2.1.0'
+    umengVersion = 'latest.integration'
+
+    //Testing
+    jUnitVersion = '4.12'
+    espressoVersion = '2.2.2'
+    robolectricVersion = '3.0'
+    assertJVersion = '1.7.1'
+    mockitoVersion = '1.9.5'
+    dexmakerVersion = '1.0'
+    testingSupportLibVersion = '0.1'
+    jsonVersion = '20160212'
+
+    presentationDependencies = [
+            appcompatv7          : "com.android.support:appcompat-v7:${appcompatv7Version}",
+            design               : "com.android.support:design:${designVersion}",
+            constraintLayout     : "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+            daggerCompiler       : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger               : "com.google.dagger:dagger:${daggerVersion}",
+            butterKnife          : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            recyclerView         : "com.android.support:recyclerview-v7:${recyclerViewVersion}",
+            rxJava               : "io.reactivex:rxjava:${rxJavaVersion}",
+            rxAndroid            : "io.reactivex:rxandroid:${rxAndroidVersion}",
+            rxBinding            : "com.jakewharton.rxbinding:rxbinding:${rxBindingVersion}",
+            rxBindingSupportV4   : "com.jakewharton.rxbinding:rxbinding-support-v4:${rxBindingVersion}",
+            rxBindingAppcompatV7 : "com.jakewharton.rxbinding:rxbinding-appcompat-v7:${rxBindingVersion}",
+            javaxAnnotation      : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            leakCanaryAndroid    : "com.squareup.leakcanary:leakcanary-android:${leakCanaryAndroid}",
+            leakCanaryAndroidNoOp: "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryAndroid}",
+            picasso              : "com.squareup.picasso:picasso:${picassoVersion}",
+            picassoTrans         : "jp.wasabeef:picasso-transformations:${picassoTransVersion}",
+            umeng                : "com.umeng.analytics:analytics:${umengVersion}"
+    ]
+
+    presentationTestDependencies = [
+            junit            : "junit:junit:${jUnitVersion}",
+            espressoCore     : "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+            mockito          : "org.mockito:mockito-core:${mockitoVersion}",
+            dexmaker         : "com.google.dexmaker:dexmaker:${dexmakerVersion}",
+            dexmakerMockito  : "com.google.dexmaker:dexmaker-mockito:${dexmakerVersion}",
+            testingSupportLib: "com.android.support.test:testing-support-lib:${testingSupportLibVersion}",
+    ]
+
+    domainDependencies = [
+            daggerCompiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger         : "com.google.dagger:dagger:${daggerVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            rxJava         : "io.reactivex:rxjava:${rxJavaVersion}",
+    ]
+
+    domainTestDependencies = [
+            junit  : "junit:junit:${jUnitVersion}",
+            mockito: "org.mockito:mockito-core:${mockitoVersion}",
+    ]
+
+    dataDependencies = [
+            daggerCompiler    : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger            : "com.google.dagger:dagger:${daggerVersion}",
+            rxJava            : "io.reactivex:rxjava:${rxJavaVersion}",
+            rxAndroid         : "io.reactivex:rxandroid:${rxAndroidVersion}",
+            javaxAnnotation   : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
+            ormliteAndroid    : "com.j256.ormlite:ormlite-android:${ormliteVersion}",
+            ormliteCore       : "com.j256.ormlite:ormlite-core:${ormliteVersion}",
+            stetho            : "com.facebook.stetho:stetho:${stethoVersion}",
+            litePal           : "org.litepal.android:core:${litePalVersion}"
+    ]
+
+    dataTestDependencies = [
+            junit       : "junit:junit:${jUnitVersion}",
+            espressoCore: "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+            assertj     : "org.assertj:assertj-core:${assertJVersion}",
+            mockito     : "org.mockito:mockito-core:${mockitoVersion}",
+            robolectric : "org.robolectric:robolectric:${robolectricVersion}",
+    ]
+
+    netDependencies = [
+            daggerCompiler       : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger               : "com.google.dagger:dagger:${daggerVersion}",
+            rxJava               : "io.reactivex:rxjava:${rxJavaVersion}",
+            gson                 : "com.google.code.gson:gson:${gsonVersion}",
+            retrofit             : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitAdapterRxjava: "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}",
+            retrofitConverterGson: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            stethoOkhttp         : "com.facebook.stetho:stetho-okhttp3:${stethoVersion}",
+            jshdcProto           : "com.aspirecn.jshdc:jshdc-proto:${jshdcProtoVersion}"
+    ]
+
+    netTestDependencies = [
+            junit: "junit:junit:${jUnitVersion}",
+            json : "org.json:json:${jsonVersion}"
+    ]
+
+}

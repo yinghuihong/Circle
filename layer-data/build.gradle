@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.fernandocejas.frodo'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    defaultPublishConfig "debug"
+
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+    buildToolsVersion globalConfiguration.getAt("androidBuildToolsVersion")
+
+    defaultConfig {
+        minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+        versionCode globalConfiguration.getAt("androidVersionCode")
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+
+    lintOptions {
+        quiet true
+        abortOnError false
+        ignoreWarnings true
+        disable 'InvalidPackage'  // Some libraries have issues with this
+        disable 'OldTargetApi'
+        // Due to Robolectric that modifies the manifest when running tests
+    }
+}
+
+dependencies {
+    compile project(':layer-domain')
+    compile project(':layer-data-net')
+    def dataDependencies = rootProject.ext.dataDependencies
+    apt dataDependencies.daggerCompiler
+    compile dataDependencies.dagger
+    compile dataDependencies.rxJava
+    compile dataDependencies.rxAndroid
+    compile dataDependencies.stetho
+    compile dataDependencies.litePal
+
+    def dataTestDependencies = rootProject.ext.dataTestDependencies
+    testCompile dataTestDependencies.junit
+    testCompile dataTestDependencies.assertj
+    testCompile dataTestDependencies.mockito
+    testCompile dataTestDependencies.robolectric
+    androidTestCompile(dataTestDependencies.espressoCore, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+}
