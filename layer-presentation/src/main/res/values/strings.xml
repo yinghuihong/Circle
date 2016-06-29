@@ -10,4 +10,11 @@
 
     <!-- core module-->
     <string name="core_action_loading">加载中..</string>
+
+    <!-- common module-->
+    <string name="common_main_tab_recommend">精彩推荐</string>
+    <string name="common_main_tab_discover">找活动</string>
+    <string name="common_main_tab_produce">发活动</string>
+    <string name="common_main_tab_mine">我的</string>
+
 </resources>
